@@ -2,34 +2,14 @@
 문자열 s가 주어졌을 때, s를 JadenCase로 바꾼 문자열을 리턴하는 함수, solution을 완성해주세요.'''
 
 def solution(s):
-    answer = s.split()
-    answer2 = ""
-    for i in range(len(answer)):
-        temp = ""
-        ## 알파벳일때 처리
-        if answer[i][0].isalpha():
-            temp += answer[i][0].upper()
-        elif answer[i][0] == " ":
-            temp += " "
-        ## 숫자 처리
+    answer = []
+    for i, char in enumerate(s):
+        if i == 0 or s[i-1] == ' ':
+            answer.append(char.upper())
         else:
-            temp += answer[i][0]
+            answer.append(char.lower())
             
-        for j in range(1, len(answer[i])):
-            ## 알파벳일떄 처리
-            if answer[i][j].isalpha():
-                temp += answer[i][j].lower()
-            elif answer[i][j] == " ":
-                temp += " "
-            ## 아닐때 처리
-            else:
-                temp += answer[i][j]
-        if i == len(answer) - 1:
-            answer2 += temp
-        else:
-            answer2 += temp + " "
-    return answer2
+    return ''.join(answer)
 
-print(solution(" "))
-
+print(solution(""    ""))
 
