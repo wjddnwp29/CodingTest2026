@@ -1,3 +1,4 @@
+
 def solution(s):
     stack = []
     
@@ -9,4 +10,3 @@ def solution(s):
 
     if not stack: return 1
     else: return 0
-
