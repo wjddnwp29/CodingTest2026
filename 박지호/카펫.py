@@ -1,10 +1,11 @@
 def solution(brown, yellow):
     
-    answer = [i for i in range(1,yellow+1) if yellow % i ==0]
-    mid = len(answer) // 2
+    answer = []
+    for i in range(1,int(yellow**0.5) + 1):
+        if yellow % i == 0:
+            answer.append([yellow // i, i])
 
-    k1 = answer[mid]
-    k2 = yellow / k1
+    for i,j in answer:
+        if 2*i + 2*j + 4 == brown:
+            return [i+2,j+2]
     
-    return [k2+2,k1+2]
-print(10,2)
