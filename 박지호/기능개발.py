@@ -7,18 +7,18 @@ def solution(progresses, speeds):
         else:
             answer.append(k//speeds[i] + 1)
         
-    cnt = 1
+    
     answer2 = []
-    while answer:
-        if len(answer) == 1:
-            answer2.append(cnt)
-            break
-        if answer.pop() > answer[-1]:
+    front = answer[0]
+    cnt = 0
+    for i in answer:
+        if i <= front:
+            cnt+=1
+        else:
             answer2.append(cnt)
             cnt=1
-        else :
-            cnt += 1
+            front=i
+    answer2.append(cnt)
 
-    return answer2[::-1]
+    return answer2
 
-print(solution([95, 90, 99, 99, 80, 99],[1, 1, 1, 1, 1, 1]))
