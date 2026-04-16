@@ -1,13 +1,15 @@
-def solution(prices):
-    answer = []
-    
+from collections import deque
 
-    for i in range(len(prices)):
+def solution(prices):
+    q = deque(prices)
+    answer = []
+
+    while q:
         cnt = 0
-        for j in range(i+1,len(prices)):
+        price = q.popleft()
+        for w in q:
             cnt+=1
-            if prices[j] < prices[i]:    
-                break
-        answer.append(cnt)
-    return answer
+            
+
+
 print(solution([1, 2, 3, 2, 3]))
