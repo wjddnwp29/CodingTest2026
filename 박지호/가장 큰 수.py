@@ -1,10 +1,6 @@
-def solution(array, commands):
-    answer = []
-    
-    for c in commands:
-        i,j,k = c
-        sliced_array = array[i-1:j]
-        sliced_array.sort()
-        answer.append(sliced_array[k-1])
-
+def solution(numbers):
+    answer = ''
+    numbers = list(map(str,numbers))
+    numbers.sort(key = lambda x : x * 3,reverse=True)
+    answer = str(int("".join(numbers)))
     return answer
